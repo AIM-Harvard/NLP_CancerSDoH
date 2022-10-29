@@ -1,6 +1,6 @@
 # NLP Methods for Exporing Social Determinants of Health
 
-The goal of this project is to explore methods to empirically explore social determinants of health that may underlie cancer disparities. This code was used to implement the methods reported in "Natural language processing methods to empirically explore social determinants of health underlying cancer disparities" (manuscript in process). The results reported in this manuscript were from a prioprietary dataset with protected health information. But, these methods will run on other text datasets.
+The goal of this project is to explore methods to empirically explore social determinants of health (SDoH) that may underlie cancer disparities. This code was used to implement the methods reported in "Natural language processing methods to empirically explore social determinants of health underlying cancer disparities" (manuscript in process). The results reported in this manuscript were from a prioprietary dataset with protected health information. But, these methods will run on other text datasets.
 
 ## Data Preprocessing for Log Odds Ratio Analysis
 
