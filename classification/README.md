@@ -1,4 +1,4 @@
-Clincal Note Patient Demographic Classifiers
+## Clincal Note Patient Demographic Classifiers
 Three binary classification tasks (Insurance, Gender, Race/Ethnicity) based on patient notes 
 Note Types: i) notes written only by physicians and; ii) notes written by all providers
 
