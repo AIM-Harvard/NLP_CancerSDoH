@@ -1,4 +1,5 @@
-Neural Topic Modeling of Clincal notes
+## Neural Topic Modeling of Clincal notes
+
 Topic Models are trained on corpus, and inference is performed on held out test set
 Note Types: i) notes written only by physicians and; ii) notes written by all providers
 
