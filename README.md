@@ -25,3 +25,55 @@ The Create_Word_Lists.ipynb creates lists of all medical and nonmedical words th
 
 
 Log_OR_Dirichlet_Prior_Race.ipynb computes the log odds ratios to compare word frequency across patient race. It also computes the associated z-scores and confidence intervals. Non-hispanic White patient notes are compared to Black patient notes, and all other notes are compared to White patient notes.
+
+## Neural Topic Modeling of Clincal notes
+Topic Models are trained on corpus, and inference is performed on held out test set
+Note Types: i) notes written only by physicians and; ii) notes written by all providers
+
+Data and Models
+    - Clincal notes are curated from MGB databases. All of our corpora contain PHI and are therefore not available to publish.
+    - Variational Auto Encoder Topic Models
+        - Purpose is to discover latent topics (word distributions) in our corpus of clincal notes
+        - Then we perform inference using the trained topic models on clincial notes to see differences in topic distributions by patient demographic
+
+Notebooks
+- inference_neural.ipynb & inference_neural_phys_res_fel.ipynb 
+    - All provider notes and only physician notes topic models respectively
+    - Data is loaded and split into a training set and a held-out subset of notes for inference
+    - Topic models are trained using automatic model selection from the Topic Modeling Neural Toolkit
+    - Latent topics are displayed
+    - Each cell can be run sequentially 
+
+utils.py
+    - Helper functions for classification
+
+- Inference
+    - Based on patient demographics (Insurance, Gender, and Race/Ethnicity) test set is encoded from trained topic model
+    - Encodings are output to json for data analysis
+
+## Clincal Note Patient Demographic Classifiers
+
+Three binary classification tasks (Insurance, Gender, Race/Ethnicity) based on patient notes 
+Note Types: i) notes written only by physicians and; ii) notes written by all providers
+
+Data and Models
+    - Clincal notes are curated from MGB databases. All of our corpora contain PHI and are therefore not available to publish
+    - Training for BERT-base, Bio+Clincal-BERT, Logistic Regression, and Gradient Boosting models. 
+    - After training and hyperparameter tuning evaluations are performed on the held out test set.
+
+train.py
+    - Python file to train and evaluate BERT-base and Bio+Clincal-BERT classifiers.
+    - Load data, hyperparameters, and task arguments through command line arguments
+    1. Data is loaded into memory and preprocessed 
+    2. Model training, and evaluation on development set at each epoch
+    3. Final test set evaluation
+    EXAMPLE: Run BERT-base for 5 epochs, training on physician notes to classify a patient's gender
+    e.g., python train.py --train_file /path/to/train_set.csv --dev_file /path/to/development_set.csv --test_file /path/to/test_set.csv --logdir /path/to/result_logs_dir --epochs 5  --model BERT --seq_length 512 --batch_size 32 --lr 0.00001 --label Gender --dropout 0.2 --undersample --provider_type Physician
+
+utils.py
+    - Helper functions for classification
+
+Notebooks
+- stat_model_all_providers.ipynb & stat_model_physician.ipynb
+    - Trains and evaluates Logistic Regression and Gradient Boosting classifiers
+    - Each cell can be run sequentially 
