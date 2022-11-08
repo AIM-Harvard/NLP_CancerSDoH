@@ -26,6 +26,7 @@ Log_OR_Dirichlet_Prior_Race.ipynb computes the log odds ratios to compare word f
 
 ## Neural Topic Modeling of Clincal notes
 Topic Models are trained on corpus, and inference is performed on held out test set
+
 Note Types: i) notes written only by physicians and; ii) notes written by all providers
 
 Data and Models
@@ -52,6 +53,7 @@ utils.py
 ## Clincal Note Patient Demographic Classifiers
 
 Three binary classification tasks (Insurance, Gender, Race/Ethnicity) based on patient notes
+
 Note Types: i) notes written only by physicians and; ii) notes written by all providers
 
 Data and Models
