@@ -1,7 +1,6 @@
 # NLP Methods for Exporing Social Determinants of Health
-***This repo is still in progress***
 
-The goal of this project is to explore methods to empirically explore social determinants of health (SDoH) that may underlie cancer disparities. This code was used to implement the methods reported in "Natural language processing methods to empirically explore social determinants of health underlying cancer disparities" (manuscript in process). The results reported in this manuscript were from a prioprietary dataset with protected health information. But, these methods will run on other texts with appropriate data labels for demographics.
+The goal of this project is to explore methods to empirically explore social determinants of health (SDoH) that may underlie cancer disparities. This code was used to implement the methods reported in "Natural language processing methods to empirically explore social determinants of health underlying cancer disparities" (manuscript in submission). The results reported in this manuscript were from a prioprietary dataset with protected health information. But, these methods will run on other texts with appropriate data labels for demographics.
 
 ## Data Preprocessing for Log Odds Ratio Analysis
 
@@ -30,7 +29,7 @@ Topic Models are trained on corpus, and inference is performed on held out test 
 Note Types: i) notes written only by physicians and; ii) notes written by all providers
 
 Data and Models
-    - Clincal notes are curated from MGB databases. All of our corpora contain PHI and are therefore not available to publish.
+    - Clincal notes are curated from the electronic health records (EHR). All of our corpora contain PHI and are therefore not available to publish.
     - Variational Auto Encoder Topic Models
         - Purpose is to discover latent topics (word distributions) in our corpus of clincal notes
         - Then we perform inference using the trained topic models on clincial notes to see differences in topic distributions by patient demographic
@@ -52,11 +51,11 @@ utils.py
 
 ## Clincal Note Patient Demographic Classifiers
 
-Three binary classification tasks (Insurance, Gender, Race/Ethnicity) based on patient notes 
+Three binary classification tasks (Insurance, Gender, Race/Ethnicity) based on patient notes
 Note Types: i) notes written only by physicians and; ii) notes written by all providers
 
 Data and Models
-    - Clincal notes are curated from MGB databases. All of our corpora contain PHI and are therefore not available to publish
+    - Clincal notes are curated from the EHR. All of our corpora contain PHI and are therefore not available to publish
     - Training for BERT-base, Bio+Clincal-BERT, Logistic Regression, and Gradient Boosting models. 
     - After training and hyperparameter tuning evaluations are performed on the held out test set.
 
